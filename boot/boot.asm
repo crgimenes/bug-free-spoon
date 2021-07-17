@@ -90,6 +90,14 @@ load32:
 	mov			ebp, 0x00200000
 	mov			esp, ebp
 
+; enable A20 gate
+
+	in 			al, 0x92
+	or			al, 0x2
+	out			0x92, al
+
+; halt
+
 	jmp 		$
 
 
